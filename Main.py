@@ -3,7 +3,7 @@ import asyncio
 import discord
 from discord.ext import commands
 
-token = "OTk0Mzc1MTcyOTA1Nzc1MTY1.GGBudH.M-PbuFzJTulSQ71VBPpiLPf1javn_gnHfu_kbk"
+token = "Token Here"
 prefix = "!"
 
 client = commands.Bot(command_prefix = prefix)
