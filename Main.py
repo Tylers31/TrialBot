@@ -3,7 +3,7 @@ import asyncio
 import discord
 from discord.ext import commands
 
-token = "TOKEN HERE"
+token = "OTk0Mzc1MTcyOTA1Nzc1MTY1.GGBudH.M-PbuFzJTulSQ71VBPpiLPf1javn_gnHfu_kbk"
 prefix = "!"
 
 client = commands.Bot(command_prefix = prefix)
@@ -26,15 +26,12 @@ async def on_ready():
 ###########
 @client.command()
 async def ping(ctx):
-    await ctx.send("||@here|| **Get on we running trials!**")
-    await asyncio.sleep(0.5)
-    await ctx.send("||@here|| **Get on we running trials!**")
-    await asyncio.sleep(0.5)
-    await ctx.send("||@here|| **Get on we running trials!**")
-    await asyncio.sleep(0.5)
-    await ctx.send("||@here|| **Get on we running trials!**")
-    await asyncio.sleep(0.5)
-    await ctx.send("||@here|| **Get on we running trials!**")
+    if ctx.message.author.guild_permissions.administrator:
+      embed=discord.Embed(title="Get on ||@here||", url="https://cosmicpvp.com/", description="Running trials join disc", color=0xFF5733)
+    else:
+      embed=discord.Embed(title="Permission Error!", description="You do not have that permission!", color=0xFF5733)
+    await ctx.send(embed=embed)
+    await ctx.message.delete()
   
 ###########
 #Mental Asylum Map CMD
