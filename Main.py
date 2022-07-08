@@ -1,7 +1,7 @@
-
 import asyncio
 import discord
 from discord.ext import commands
+intents = discord.Intents().all()
 
 token = "Token Here"
 prefix = "!"
@@ -65,9 +65,17 @@ async def fire(ctx):
 ###########
 @client.command()
 async def help(ctx):
-  embed=discord.Embed(title="Trial Bot Commands", url="https://cosmicpvp.com/", description="*Made by tyler.#2578* \n Prefix = !\n \n> **1:** **Ping** *- Pings everyone to get on*\n > **2:** **Help** *- Displays this menu* \n > **3:** **Mental** *- Displays a map of Mental Asylum* \n > **4:** **Haze** *- Displays a map of Hase and Seek* \n > **5:** **Fire** *- Displays a map of Fire Colony*", color=0xFF5733)
+  embed=discord.Embed(title="Trial Bot Commands", url="https://cosmicpvp.com/", description="*Made by tyler.#2578* \n Prefix = !\n \n> **Ping** *- Pings everyone to get on*\n > **Help** *- Displays this menu* \n > **Mental** *- Displays a map of Mental Asylum* \n > **Haze** *- Displays a map of Hase and Seek* \n > **Fire** *- Displays a map of Fire Colony*", color=0xFF5733)
   await ctx.send(embed=embed)
 
+###########
+#Auto Role
+##########
+@client.event
+async def on_member_join(member):
+  role = discord.utils.get(member.server.roles, name='member')
+  await client.add_roles(member, role)
+  
 ###########
 #Client Token Execution
 ###########
